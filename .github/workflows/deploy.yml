@@ -7,8 +7,8 @@ on:
     branches: [ master, main ]
 
 jobs:
-  # CI: Test and build everything in one job
-  test-and-build:
+  # CI: Test code and Docker
+  test:
     runs-on: ubuntu-latest
     
     steps:
@@ -54,19 +54,31 @@ jobs:
     - name: Build Docker image
       run: |
         docker build -t server-health-monitor:latest .
-        docker images
+        docker images | grep server-health-monitor
     
-    - name: Test Docker image
+    - name: Run Docker container
       run: |
         docker run -d -p 5000:5000 --name test-container server-health-monitor:latest
         sleep 10
-        curl -f http://localhost:5000/health
+    
+    - name: Test Docker container health
+      run: |
+        curl -v http://localhost:5000/health
+        curl -f http://localhost:5000/health || exit 1
+    
+    - name: Test API endpoint
+      run: |
+        curl -f http://localhost:5000/api/metrics/current || exit 1
+    
+    - name: Cleanup Docker container
+      run: |
         docker stop test-container
         docker rm test-container
+      if: always()
 
-  # CD: Deploy to Render (optional - needs secrets)
-  deploy-render:
-    needs: test-and-build
+  # CD: Deploy to Render (optional)
+  deploy:
+    needs: test
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     
@@ -85,5 +97,5 @@ jobs:
             -H "Content-Type: application/json"
           echo "✅ Render deployment triggered"
         else
-          echo "⚠️ Render secrets not configured - skipping deployment"
+          echo "⚠️ Skipping deployment - RENDER_API_KEY or RENDER_SERVICE_ID not configured"
         fi
