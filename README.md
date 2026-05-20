@@ -10,7 +10,7 @@
 
 A real-time server health monitoring dashboard that tracks system metrics, provides historical trends, and sends alerts based on configurable thresholds. Built with Flask, psutil, and Chart.js, this project follows clean architecture principles and DevOps best practices.
 
-**Live Demo:** [https://server-health-monitor.onrender.com](https://server-health-monitor.onrender.com) *(coming soon after deployment)*
+**Live Demo:** [https://server-health-monitor.onrender.com](https://server-health-monitor.onrender.com/) 
 
 ## Features
 
