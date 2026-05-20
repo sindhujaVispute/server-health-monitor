@@ -1,4 +1,4 @@
-# 🖥️ Server Health Monitoring Dashboard
+# Server Health Monitoring Dashboard
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -6,13 +6,13 @@
 [![Flask](https://img.shields.io/badge/flask-%23000.svg?style=flat&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-## 📊 Overview
+## Overview
 
 A production-ready, real-time server health monitoring dashboard that tracks system metrics, provides historical trends, and sends alerts based on configurable thresholds. Built with Flask, psutil, and Chart.js, this project follows clean architecture principles and DevOps best practices.
 
 **Live Demo:** [https://server-health-monitor.onrender.com](https://server-health-monitor.onrender.com) *(coming soon after deployment)*
 
-## ✨ Features
+## Features
 
 ### Core Features
 - **Real-Time Monitoring** - Live metrics for CPU, RAM, Disk, Network, and System Uptime
@@ -29,7 +29,7 @@ A production-ready, real-time server health monitoring dashboard that tracks sys
 - **Clean Architecture** - Separation of concerns, modular design
 - **Comprehensive Logging** - Centralized logging with rotation
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 | Technology | Purpose |
@@ -63,7 +63,7 @@ A production-ready, real-time server health monitoring dashboard that tracks sys
 - Docker and Docker Compose (optional)
 - Git
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Local Development
 
